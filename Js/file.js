@@ -35,6 +35,8 @@ if (marcas_aceites === 1) {
   precio_total += marcas_aceite["helix"];
 } else if (marcas_aceites === 3) {
   precio_total += marcas_aceite["liqid_moly"];
+} else {
+  alert("Marca de aceite no válida");
 }
 
 const marcas_filtro_aire1 = pedirSeleccion("Marca de filtro de aire:\n1. Mann\n2. Wega", 2);
@@ -43,6 +45,8 @@ if (marcas_filtro_aire1 === 1) {
   precio_total += marcas_filtro_aire["mann"];
 } else if (marcas_filtro_aire1 === 2) {
   precio_total += marcas_filtro_aire["wega"];
+} else {
+  alert("Marca de Filtro de Aire no válida");
 }
 
 const marcas_filtro_nafta1 = pedirSeleccion("Marca de filtro de nafta:\n1. Mann\n2. Wega", 2);
@@ -51,6 +55,8 @@ if (marcas_filtro_nafta1 === 1) {
   precio_total += marcas_filtro_nafta["mann"];
 } else if (marcas_filtro_nafta1 === 2) {
   precio_total += marcas_filtro_nafta["wega"];
+} else {
+  alert("Marca de filtro de nafta no válida");
 }
 
 const servicio1 = pedirSeleccion("Servicio:\n1. Premium (40 min de demora)\n2. Standar (3 horas de demora)", 2);
@@ -59,6 +65,8 @@ if (servicio1 === 1) {
   precio_total += servicio["Premium"];
 } else if (servicio1 === 2) {
   precio_total += servicio["Standar"];
+} else {
+  alert("servicio no válido");
 }
 
 alert("El precio total es: " + precio_total + " pesos");
