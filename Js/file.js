@@ -1,74 +1,90 @@
 const precio_cambio_aceite = 0;
-const marcas_aceite = {
-  "elaion": 17000,
-  "helix": 20000,
-  "liqid_moly": 28000,
-};
-const marcas_filtro_aire = {
-  "mann": 4500,
-  "wega": 6700,
-};
-const marcas_filtro_nafta = {
-  "mann": 3000,
-  "wega": 5500,
-};
-const servicio = {
-  "Premium": 10000,
-  "Standar": 5000,
-};
+const marcas_aceite = [
+    { marca: "elaion", precio: 17000 },
+    { marca: "helix", precio: 20000 },
+    { marca: "liqid_moly", precio: 28000 }
+];
+const marcas_filtro_aire = [
+    { marca: "mann", precio: 4500 },
+    { marca: "wega", precio: 6700 }
+];
+const marcas_filtro_nafta = [
+    { marca: "mann", precio: 3000 },
+    { marca: "wega", precio: 5500 }
+];
+const servicio = [
+    { tipo: "Premium", precio: 10000 },
+    { tipo: "Standar", precio: 5000 }
+];
 
-function pedirSeleccion(mensaje, opciones) {
-  let seleccion;
-  do {
-    seleccion = parseInt(prompt(mensaje));
-  } while (isNaN(seleccion) || seleccion < 1 || seleccion > opciones);
-  return seleccion;
+function pedirSeleccion(mensaje, opciones, callback) {
+    let seleccion;
+    do {
+        seleccion = parseInt(prompt(mensaje));
+    } while (isNaN(seleccion) || !callback(seleccion, opciones));
+    return seleccion;
 }
 
-const marcas_aceites = pedirSeleccion("Marca de aceite:\n1. Elaion\n2. Helix\n3. Liqid Moly", 3);
-
-let precio_total = precio_cambio_aceite; 
-
-if (marcas_aceites === 1) {
-  precio_total += marcas_aceite["elaion"];
-} else if (marcas_aceites === 2) {
-  precio_total += marcas_aceite["helix"];
-} else if (marcas_aceites === 3) {
-  precio_total += marcas_aceite["liqid_moly"];
-} else {
-  alert("Marca de aceite no válida");
+function validarSeleccion(seleccion, opciones) {
+    return seleccion >= 1 && seleccion <= opciones;
 }
 
-const marcas_filtro_aire1 = pedirSeleccion("Marca de filtro de aire:\n1. Mann\n2. Wega", 2);
+const marcas_aceites = pedirSeleccion(
+    "Marca de aceite:\n1. Elaion\n2. Helix\n3. Liqid Moly",
+    marcas_aceite.length,
+    validarSeleccion
+);
 
-if (marcas_filtro_aire1 === 1) {
-  precio_total += marcas_filtro_aire["mann"];
-} else if (marcas_filtro_aire1 === 2) {
-  precio_total += marcas_filtro_aire["wega"];
-} else {
-  alert("Marca de Filtro de Aire no válida");
+let precio_total = precio_cambio_aceite;
+
+if (validarSeleccion(marcas_aceites, marcas_aceite.length)) {
+    marcas_aceite.forEach(function (marca, index) {
+        if (index + 1 === marcas_aceites) {
+            precio_total += marca.precio;
+        }
+    });
 }
 
-const marcas_filtro_nafta1 = pedirSeleccion("Marca de filtro de nafta:\n1. Mann\n2. Wega", 2);
+const marcas_filtro_aire1 = pedirSeleccion(
+    "Marca de filtro de aire:\n1. Mann\n2. Wega",
+    marcas_filtro_aire.length,
+    validarSeleccion
+);
 
-if (marcas_filtro_nafta1 === 1) {
-  precio_total += marcas_filtro_nafta["mann"];
-} else if (marcas_filtro_nafta1 === 2) {
-  precio_total += marcas_filtro_nafta["wega"];
-} else {
-  alert("Marca de filtro de nafta no válida");
+if (validarSeleccion(marcas_filtro_aire1, marcas_filtro_aire.length)) {
+    marcas_filtro_aire.forEach(function (marca, index) {
+        if (index + 1 === marcas_filtro_aire1) {
+            precio_total += marca.precio;
+        }
+    });
 }
 
-const servicio1 = pedirSeleccion("Servicio:\n1. Premium (40 min de demora)\n2. Standar (3 horas de demora)", 2);
+const marcas_filtro_nafta1 = pedirSeleccion(
+    "Marca de filtro de nafta:\n1. Mann\n2. Wega",
+    marcas_filtro_nafta.length,
+    validarSeleccion
+);
 
-if (servicio1 === 1) {
-  precio_total += servicio["Premium"];
-} else if (servicio1 === 2) {
-  precio_total += servicio["Standar"];
-} else {
-  alert("servicio no válido");
+if (validarSeleccion(marcas_filtro_nafta1, marcas_filtro_nafta.length)) {
+    marcas_filtro_nafta.forEach(function (marca, index) {
+        if (index + 1 === marcas_filtro_nafta1) {
+            precio_total += marca.precio;
+        }
+    });
+}
+
+const servicio1 = pedirSeleccion(
+    "Servicio:\n1. Premium (40 min de demora)\n2. Standar (3 horas de demora)",
+    servicio.length,
+    validarSeleccion
+);
+
+if (validarSeleccion(servicio1, servicio.length)) {
+    servicio.forEach(function (serv, index) {
+        if (index + 1 === servicio1) {
+            precio_total += serv.precio;
+        }
+    });
 }
 
 alert("El precio total es: " + precio_total + " pesos");
-
-
