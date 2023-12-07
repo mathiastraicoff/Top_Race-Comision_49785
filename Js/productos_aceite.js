@@ -25,9 +25,8 @@ function guardarCarritoLocalStorage() {
 }
 function agregarAlCarrito(producto) {
     carrito.push(producto);
-    mostrarCarrito();
     guardarCarritoLocalStorage();
-    mostrarProductosEnCarrito();
+    mostrarCarrito(); // Mostrar el carrito actualizado
 }
 const marcas_aceite = [
     { producto: "Aceite", marca: "Elaion", descripcion: "Mineral 15W40", precio: 17000,Image: "../Image/elaion_15w40.webp"},
@@ -74,16 +73,16 @@ function cerrarCarritoModal() {
     const carritoModal = new bootstrap.Modal(document.getElementById('carritoModal'));
     carritoModal.hide();
 }
-function filtrarProductos(texto, marca, productos) {
+function filtrarProductos(texto, productos) {
     const textoBusqueda = (typeof texto === 'string') ? texto.trim().toLowerCase() : '';
     if (textoBusqueda === '') {
         return productos; 
     }
     return productos.filter(producto =>
-        producto.marca.toLowerCase().includes(textoBusqueda)
+        producto.marca.toLowerCase().includes(textoBusqueda) || producto.descripcion.toLowerCase().includes(textoBusqueda)
     );
 }
-function mostrarProductos(productos) {
+function mostrarProductos() {
     const container = document.getElementById('contenedorProductos');
     container.style.display = 'flex';
     container.style.flexWrap = 'wrap';
@@ -164,16 +163,25 @@ document.getElementById('continuarBtn').addEventListener('click', () => {
 function actualizarProductos() {
     const textoBusqueda = document.getElementById('buscadorProducto').value;
     const productosFiltrados = filtrarProductos(textoBusqueda, '', marcas_aceite);
-    mostrarProductos(productosFiltrados);
+    mostrarProductosFiltrados(productosFiltrados);
 }
-// document.getElementById('buscadorProducto').addEventListener('input', actualizarProductos);
+// 
+document.getElementById("buscadorProducto").addEventListener("input", (event) => {
+    const searchText = document.getElementById("buscadorProducto").value;
 
-document.getElementById("buscadorProducto").addEventListener("input", () => {
-    filtrarProductos(document.getElementById("buscadorProducto").value, '', marcas_aceite);
+    if (event.key === 'Enter') {
+        mostrarProductosFiltrados(filtrarProductos(searchText, marcas_aceite));
+    } else if (searchText === '') {
+        mostrarProductos(marcas_aceite);
+    } else {
+        mostrarProductosFiltrados(filtrarProductos(searchText, marcas_aceite));
+    }
 });
+
 document.getElementById('buscarButton').addEventListener('click', () => {
     actualizarProductos();
 });
+
 function toggleCarrito() {
     const carritoProductos = document.getElementById('carritoProductos');
     const botonMinimizarMaximizar = document.getElementById('botonMinimizarMaximizar');
@@ -260,5 +268,63 @@ function inicializarCarrito() {
 }
 inicializarCarrito();
 
-mostrarProductos(marcas_aceite);
+function mostrarProductosFiltrados(productosFiltrados) {
+    const container = document.getElementById('contenedorProductos');
+    container.style.display = 'flex';
+    container.style.flexWrap = 'wrap';
+    container.style.justifyContent = 'center';
+    container.innerHTML = '';
 
+    productosFiltrados.map(producto => {
+        const card = document.createElement('div');
+        card.classList.add('card', 'mb-3');
+        card.style.width = '300px';
+        card.style.margin = '20px';
+
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+
+        const productoNombre = document.createElement('h4');
+        productoNombre.classList.add('card-title');
+        productoNombre.style.fontSize = '25px';
+        productoNombre.style.textAlign = 'center';
+        productoNombre.style.padding = '10px';
+        productoNombre.style.textDecoration = 'none';
+        productoNombre.textContent = producto.marca;
+
+        const productoImagen = document.createElement('img');
+        productoImagen.classList.add('card-img-top');
+        productoImagen.src = producto.Image;
+        productoImagen.alt = `${producto.marca} - ${producto.producto}`;
+
+        const productoDescripcion = document.createElement('p');
+        productoDescripcion.classList.add('card-text');
+        productoDescripcion.style.fontSize = '20px';
+        productoDescripcion.textContent = `${producto.descripcion}`;
+
+        const productoPrecio = document.createElement('p');
+        productoPrecio.classList.add('card-text');
+        productoPrecio.style.fontWeight = 'bold';
+        productoPrecio.textContent = `$${producto.precio}`;
+
+        const agregarBoton = document.createElement('button');
+        agregarBoton.textContent = 'Agregar al Carrito';
+        agregarBoton.classList.add('btn', 'btn-primary', 'mt-2');
+        agregarBoton.style.height = '60px';
+        agregarBoton.style.width = '250px';
+        agregarBoton.style.fontSize = '22px';
+        agregarBoton.addEventListener('click', () => {
+            agregarAlCarrito(producto);
+        });
+
+        cardBody.appendChild(productoNombre);
+        cardBody.appendChild(productoImagen);
+        cardBody.appendChild(productoDescripcion);
+        cardBody.appendChild(productoPrecio);
+        cardBody.appendChild(agregarBoton);
+        card.appendChild(cardBody);
+        container.appendChild(card);
+    });
+}
+
+mostrarProductos(marcas_aceite);
