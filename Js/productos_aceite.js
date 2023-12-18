@@ -26,7 +26,7 @@ function guardarCarritoLocalStorage() {
 function agregarAlCarrito(producto) {
     carrito.push(producto);
     guardarCarritoLocalStorage();
-    mostrarCarrito(); // Mostrar el carrito actualizado
+    mostrarCarrito(); 
 }
 const marcas_aceite = [
     { producto: "Aceite", marca: "Elaion", descripcion: "Mineral 15W40", precio: 17000,Image: "../Image/elaion_15w40.webp"},
