@@ -1,0 +1,30 @@
+[
+    {
+        "producto":"Aditivo" ,
+        "marca":"Liquid Moly" ,
+        "descripcion":"Super Diesel",
+        "precio":23000,
+        "Image":"../Image//prod_varios_liqmol1.webp"
+    },
+    {
+        "producto":"Aditivo" ,
+        "marca":"Liquid Moly" ,
+        "descripcion":"Motor Plus",
+        "precio":25000,
+        "Image":"../Image/prod_varios_liqmol2.jpg"
+    },
+    {
+        "producto":"Aditivo" ,
+        "marca":"Liquid Moly" ,
+        "descripcion":"Motor Bike",
+        "precio":20000,
+        "Image":"../Image/prod_varios_liqmol3.webp"
+    },
+    {
+        "producto":"Aditivo" ,
+        "marca":"Liquid Moly" ,
+        "descripcion":"viscus",
+        "precio":28000,
+        "Image":"../Image/prod_varios_liqmol4.webp"
+    }
+]

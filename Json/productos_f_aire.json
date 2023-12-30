@@ -1,0 +1,44 @@
+[
+    {
+        "producto":"Filtros De Aire" ,
+        "marca":"Wega" ,
+        "descripcion":"Sin espuma",
+        "precio":6500,
+        "Image":"../Image/f_aire_wega1.webp"
+    },
+    {
+        "producto":"Filtros De Aire" ,
+        "marca":"Wega" ,
+        "descripcion":"Con espuma",
+        "precio":8700,
+        "Image":"../Image/f_aire_wega2.webp"
+    },
+    {
+        "producto":"Filtros De Aire" ,
+        "marca":"Wega" ,
+        "descripcion":"Habitáculo",
+        "precio":4300,
+        "Image":"../Image/f_aire_wega3.webp"
+    },
+    {
+        "producto":"Filtros De Aire" ,
+        "marca":"Mann Filter" ,
+        "descripcion":"Simple",
+        "precio":6800,
+        "Image":"../Image/f_aire_man1.webp"
+    },
+    {
+        "producto":"Filtros De Aire" ,
+        "marca":"Mann Filter" ,
+        "descripcion":"Con Refuerzo",
+        "precio":9200,
+        "Image":"../Image/f_aire_mann2.webp"
+    },
+    {
+        "producto":"Filtros De Aire" ,
+        "marca":"Mann Filter" ,
+        "descripcion":"Habitáculo",
+        "precio":5250,
+        "Image":"../Image/f_aire_mann3.webp"
+    }
+]

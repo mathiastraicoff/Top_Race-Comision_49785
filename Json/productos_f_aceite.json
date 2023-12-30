@@ -1,0 +1,44 @@
+[
+    {
+        "producto":"Filtro de Aceite" ,
+        "marca":"Mann Filter" ,
+        "descripcion":"Para moto",
+        "precio":5000,
+        "Image":"../Image/mann_chico.webp"
+    },
+    {
+        "producto":"Filtro de Aceite" ,
+        "marca":"Mann Filter" ,
+        "descripcion":"Para auto",
+        "precio":12000,
+        "Image":"../Image/mann_grande.webp"
+    },
+    {
+        "producto":"Filtro de Aceite" ,
+        "marca":"ProFilter" ,
+        "descripcion":"Para moto",
+        "precio":7000,
+        "Image":"../Image/profilter_chico.webp"
+    },
+    {
+        "producto":"Filtro de Aceite" ,
+        "marca":"ProFilter" ,
+        "descripcion":"Para auto",
+        "precio":15000,
+        "Image":"../Image/profilter_grande.webp"
+    },
+    {
+        "producto":"Filtro de Aceite" ,
+        "marca":"Marano" ,
+        "descripcion":"Para moto",
+        "precio":2000,
+        "Image":"../Image/marano_f_aceite.webp"
+    },
+    {
+        "producto":"Filtro de Aceite" ,
+        "marca":"Wix" ,
+        "descripcion":"Para auto y moto",
+        "precio":17000,
+        "Image":"../Image/Wix.webp"
+    }
+]

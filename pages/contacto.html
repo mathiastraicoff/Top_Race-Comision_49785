@@ -29,7 +29,12 @@
                     <li class="nav-item"><a class="nav-link" href="../pages/quienes_somos.html">Quienes Somos</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/servicios.html">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/productos.html">Productos</a>
-                    <li class="nav-item"><a class="nav-link active" href="../pages/contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link  active" href="../pages/contacto.html">Contacto</a>
+                    <li class="nav-item cart-icon">
+                        <a class="nav-link" href="./checkout.html">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -43,51 +48,49 @@
                         <form class="form-horizontal" id="form-horizontal" method="post">
                             <fieldset class="text-center" >
                                 <legend class="text-center header"></legend>
-                                <div class="form-group" id="form-group-nombre">
+                                <div class="form-group " id="form-group-nombre">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                                    <div class="col-md-12" id="formulario_nombre">
-                                        <input id="fname" name="nombre" type="text" placeholder="Nombre" class="form-control">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                        <p id="formulario-error">El nombre solo debe tener letras, sin espacios ni puntos</p>
+                                    <div class="col-md-12" id="formulario-nombre">
+                                        <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control">
+                                        <i class="formulario-validacion-estado fa-solid fa-circle-xmark"></i>
+                                        <p class="formulario-error">El nombre debe tener de 4 a 16 caracteres. Solo letras, sin espacios ni puntos</p>
                                     </div>
                                 </div>
-                                <div class="form-group" id="form-group-apellido">
+                                <div class="form-group " id="form-group-apellido">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" id="formulario-apellido">
                                         <input id="apellido" name="apellido" type="text" placeholder="Apellido" class="form-control">
-                                        <i class="fa-solid fa-circle-xmark"></i>
+                                        <i class="formulario-validacion-estado fa-solid fa-circle-xmark"></i>
+                                        <p class="formulario-error">El apellido debe tener de 4 a 16 caracteres. Solo letras, sin espacios ni puntos</p>
                                     </div>
-                                    <p id="formulario-error">El Apellido solo debe tener letras, sin espacios ni puntos</p>
                                 </div>
-        
-                                <div class="form-group" id="form-group-email">
+                                <div class="form-group " id="form-group-email">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa-solid fa-at"></i></span>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" id="formulario-email">
                                         <input id="email" name="email" type="text" placeholder="Direccion de E-Mail" class="form-control">
-                                        <i class="fa-solid fa-circle-xmark"></i>
+                                        <i class="formulario-validacion-estado fa-solid fa-circle-xmark"></i>
+                                        <p class="formulario-error ">El Email es incorrecto</p>
                                     </div>
-                                    <p class="formulario-error" id="formulario-error">El Email es incorrecto</p>
                                 </div>
         
-                                <div class="form-group" id="form-group-telefono">
+                                <div class="form-group " id="form-group-telefono">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" id="formulario-telefono">
                                         <input id="telefono" name="telefono" type="text" placeholder="Telefono" class="form-control">
-                                        <i class="fa-solid fa-circle-xmark"></i>
+                                        <i class="formulario-validacion-estado fa-solid fa-circle-xmark"></i>
+                                        <p class="formulario-error">El telefono ingresado es incorrecto</p>
                                     </div>
-                                    <p id="formulario-error">El telefono ingresado es incorrecto</p>
                                 </div>
-        
-                                <div class="form-group" id="form-group-control">
-                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                                    <div class="col-md-12">
+                                <div class="form-group " id="form-group-message">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa-solid fa-comments"></i></span>
+                                    <div class="col-md-12" id="formulario-message">
                                         <textarea class="form-control" id="message" name="message" placeholder="Introduzca aquí su masaje para nosotros. Nos comunicaremos con usted dentro de los próximos 2 días hábiles." rows="7"></textarea>
-                                        <i class="fa-solid fa-circle-xmark"></i>
+                                        <i class="formulario-validacion-estado fa-solid fa-circle-xmark"></i>
+                                        <p class="formulario-error">Introduzca un texto, el maximo es de 250 caracteres</p>
                                     </div>
-                                    <p id="formulario-error">El maximo es de 250 caracteres</p>
                                 </div>
-                                <div class="formulario_mensaje" id="formulario_mensaje"> 
-                                    <p id="formulario-error-msj" ><i class="fa-solid fa-triangle-exclamation"></i><b>Error</b> Por favor rellene todos los campos correctamente.</p>
+                                <div class="formulario-mensaje-error" id="formulario-mensaje-error"> 
+                                    <p class="formulario-error-msj" ><i class="fa-solid fa-triangle-exclamation"></i><b>Error</b> Por favor rellene todos los campos correctamente.</p>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12 text-center">
@@ -143,6 +146,7 @@
                 </div>
             </footer>
         </div>
+        <script src="../Js/formulario.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
     </html>

@@ -10,41 +10,44 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="../css/Style.css">
-        <title>Top Race - Home</title>
+        <title>Top Race - Filtros de Aire</title>
     </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">
-            <h1 class="logo">To<span>pRace</span></h1>
-            <h2 class="sub_logo">centro de servicios</h2>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="../pages/quienes_somos.html">Quienes Somos</a></li>
-                <li class="nav-item"><a class="nav-link" href="../pages/servicios.html">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link" href="../pages/productos.html">Productos</a>
-                <li class="nav-item"><a class="nav-link" href="../pages/contacto.html">Contacto</a></li>
-                <div class="boton_carrito_compras">
-                    <button id="mostrarCarritoBtn" class="btn btn-primary btn-carrito">
-                    <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>    
-            </ul>
-        </div>  
-    </nav>
-</header>
-    <h3>Aceites</h3>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">
+                <h1 class="logo">To<span>pRace</span></h1>
+                <h2 class="sub_logo">centro de servicios</h2>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/quienes_somos.html">Quienes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../pages/productos.html">Productos</a>
+                    <li class="nav-item"><a class="nav-link" href="../pages/contacto.html">Contacto</a>
+                    <li class="nav-item cart-icon">
+                        <a class="nav-link" href="./checkout.html">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <h3>Filtros de Aire</h3>
     <div class="container mt-4">
         <div class="input-group mb-3">
             <input type="text" id="buscadorProducto" class="form-control" placeholder="Buscar producto...">
             <button class="btn btn-outline-secondary" type="button" id="buscarButton">Buscar</button>
+        </div>
+        <div class="contenedor-botones">
+            <button id="mostrarCarritoBtn2" type="button" class="btn btn-primary mostrarCarrito2">Mostrar carrito</button>
         </div>
         <div id="contenedorProductos" class="d-flex flex-wrap"></div>
         <div class="modal fade" id="carritoModal" tabindex="-1" role="dialog" aria-labelledby="carritoModalLabel" aria-hidden="true">
@@ -59,9 +62,39 @@
                         </ul>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary f-compra">Finalizar Compra</button>
+                        <button id="botonCerrar" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button id="botonFinalizar" type="button" class="btn btn-secondary "data-bs-dismiss="modal">Finalizar Compra</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="confirmarCompraModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Desea continuar con su compra?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="confirmarCompraBtn">Continuar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelarCompraBtn">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="graciasModal" tabindex="-1" aria-labelledby="graciasModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="graciasModalLabel">¡Gracias por su compra!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="continuarBtn">Continuar</button>
                 </div>
             </div>
         </div>
@@ -106,12 +139,21 @@
                 <p class="copyright">Top Race © 2023</p>
             </div>
         </footer>
-    </div>   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </div>
+    <div class="carrito-flotante">
+        <div class="carrito-header">
+            <span id="carrito_flotante">Carrito</span>
+            <button onclick="toggleCarrito()" id="botonMinimizarMaximizar">+</button>
+        </div>
+        <ul class="carrito-productos" id="carritoProductos">
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
-    <script src="../Js/productos_f_aire.js"></script>
+    <script defer src="../Js/productos_f_aire.js"></script>
 </body>
 </html>
